@@ -4,8 +4,9 @@ import React from "react";
 import * as Yup from "yup";
 import { handleLogin } from "./hooks/login";
 import { Button } from "@/common/Button";
+import { PageHeader } from "@/common/PageHeader";
 
-export const Authorization = ({ router }) => {
+export const Authorization = () => {
   const schema = Yup.object({
     email: Yup.string()
       .email("Please Enter valid email")
@@ -15,6 +16,7 @@ export const Authorization = ({ router }) => {
 
   return (
     <main className="main-content  mt-0">
+      <PageHeader title="Seller Login"/>
       <section>
         <div className="page-header min-vh-75">
           <div className="container">
