@@ -1,17 +1,21 @@
 /* eslint-disable @next/next/no-img-element */
 import { Formik } from "formik";
-import React from "react";
+import React, { useState } from "react";
 import * as Yup from "yup";
 import { handleLogin } from "./hooks/login";
 import { Button } from "@/common/Button";
 
-export const Authorization = ({ router }) => {
+export const Authorization = () => {
+  const [rememberMe, setRememberMe] = useState(false);
   const schema = Yup.object({
     email: Yup.string()
       .email("Please Enter valid email")
       .required("Email is Required"),
     password: Yup.string().required("Password is Required"),
   });
+  const handleRememberMe = () => {
+    setRememberMe(!rememberMe);
+  };
 
   return (
     <main className="main-content  mt-0">
@@ -37,6 +41,7 @@ export const Authorization = ({ router }) => {
                         handleLogin({
                           email: values.email,
                           password: values.password,
+                          rememberMe: rememberMe,
                         });
                         actions.setSubmitting(true);
                       }}
@@ -84,12 +89,13 @@ export const Authorization = ({ router }) => {
                                 errors.password}
                             </p>
                           </div>
-                          {/* <div className="form-check form-switch">
+                          <div className="form-check form-switch">
                             <input
+                              onChange={handleRememberMe}
                               className="form-check-input"
                               type="checkbox"
                               id="rememberMe"
-                              checked=""
+                              checked={rememberMe}
                             />
                             <label
                               className="form-check-label"
@@ -97,25 +103,7 @@ export const Authorization = ({ router }) => {
                             >
                               Remember me
                             </label>
-                          </div> */}
-                          {/* <div className="text-center">
-                            <button
-                              type="submit"
-                              className="btn bg-gradient-info w-100 mt-4 mb-0"
-                              disabled={isSubmitting}
-                            >
-                              {isSubmitting ? (
-                                <ThreeDots
-                                  color="#fff"
-                                  wrapperStyle={{ justifyContent: "center" }}
-                                  height={20}
-                                  width={40}
-                                />
-                              ) : (
-                                "Sign in"
-                              )}
-                            </button>
-                          </div> */}
+                          </div>
                           <Button
                             isSubmitting={isSubmitting}
                             name="Sign In"

@@ -21,8 +21,10 @@ export const Breadcrumb = ({ currentPage, serachEnable }) => {
   }, []);
 
   function logOut() {
-    LocalStorageHelper?.removeItem(localStorageConst.JWTSELLER);
+    LocalStorageHelper?.removeItem(localStorageConst.JWTADMIN);
     LocalStorageHelper?.removeItem(localStorageConst.USER);
+    LocalStorageHelper?.removeItem(localStorageConst.EXPIREIN);
+    LocalStorageHelper?.removeItem(localStorageConst.REMEMBER);
     Reload();
   }
 

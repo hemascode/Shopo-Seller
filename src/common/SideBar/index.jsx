@@ -46,7 +46,7 @@ export const SideBarNav = ({ openSideNavBar, handleOpenSideNavBar }) => {
               onClick={() => handleOpenSideNavBar()}
             ></i>
           )}
-          <a className="navbar-brand m-0" href="/admin/dashboard">
+          <a className="navbar-brand m-0" href="/">
             <img
               src="../../../assets/img/logos/globogreenlogo.png"
               className="navbar-brand-img h-100"

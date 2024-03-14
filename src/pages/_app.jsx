@@ -7,9 +7,14 @@ import "material-icons/iconfont/material-icons.css";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ToastContainer } from "react-toastify";
 import MainPage from "./_mainPage";
+import { SetExpireToken } from "@/hooks/expire";
+import { useEffect } from "react";
 
 export default function App({ Component, pageProps }) {
   const queryClient = new QueryClient();
+  useEffect(() => {
+    SetExpireToken();
+  }, []);
 
   return (
     <>
