@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import * as Yup from "yup";
 import { handleLogin } from "./hooks/login";
 import { Button } from "@/common/Button";
+import { PageHeader } from "@/common/PageHeader";
 
 export const Authorization = () => {
   const [rememberMe, setRememberMe] = useState(false);
@@ -19,6 +20,7 @@ export const Authorization = () => {
 
   return (
     <main className="main-content  mt-0">
+      <PageHeader title="Seller Login" />
       <section>
         <div className="page-header min-vh-75">
           <div className="container">
